@@ -1,6 +1,6 @@
 <div align="center">
 
-  # grabr
+  # Grabr
   *Baixador de vídeos e áudios self-hosted com interface web*
 
   [![Python](https://img.shields.io/badge/Python-3.8+-3776ab?style=flat-square)](https://python.org)
@@ -13,7 +13,7 @@
 
 ---
 
-grabr é um app Flask de arquivo único que envolve o [yt-dlp](https://github.com/yt-dlp/yt-dlp) em uma interface web limpa. Cole uma URL, escolha o formato, e a mídia é salva em uma pasta local — sem nuvem, sem conta, sem rastreamento.
+grabr é um app Flask de arquivo único que envolve o [yt-dlp](https://github.com/yt-dlp/yt-dlp) em uma interface web limpa. Cole uma URL, escolha o formato, e a mídia é salva em uma pasta local — sem nuvem, sem conta, sem rastreamento e de graça.
 
 ## Funcionalidades
 
@@ -22,7 +22,7 @@ grabr é um app Flask de arquivo único que envolve o [yt-dlp](https://github.co
 - Suporte completo a playlists com numeração automática dos arquivos
 - Fila de downloads em tempo real com barra de progresso e cancelamento por tarefa
 - Biblioteca de mídia integrada: pré-visualização de thumbnails, reprodução no navegador, busca e ordenação
-- Funciona em Linux, macOS, Windows e **Termux (Android)**
+- Funciona em Linux, macOS, Windows e **Termux (Android)** **(Foi testado somente no Windows e no Termux)**
 - Zero configuração — distribuído como um único arquivo `.py`
 
 ## Primeiros passos
