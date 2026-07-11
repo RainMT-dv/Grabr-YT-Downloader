@@ -11,6 +11,8 @@
 
 </div>
 
+![Demo do Grabr](https://github.com/user-attachments/assets/0f04d3fa-8e31-4586-9862-bd2830661341)
+
 ---
 
 grabr é um app Flask de arquivo único que envolve o [yt-dlp](https://github.com/yt-dlp/yt-dlp) em uma interface web limpa. Cole uma URL, escolha o formato, e a mídia é salva em uma pasta local — sem nuvem, sem conta, sem rastreamento.
