@@ -102,5 +102,10 @@ curl -X POST http://localhost:5000/api/download \
   -d '{"url": "https://youtu.be/dQw4w9WgXcQ", "type": "mp3", "audio_bitrate": "320"}'
 ```
 
+## Contribuindo
+
+Sinta-se à vontade para modificar e melhorar! Crie um fork e publique as suas mudanças.
+```
+
 > [!NOTE]
 > O grabr foi pensado para uso pessoal e local. Não é recomendado expô-lo em redes públicas ou não confiáveis sem alguma camada adicional de autenticação.
