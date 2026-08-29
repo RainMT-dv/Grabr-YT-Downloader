@@ -73,12 +73,14 @@ def _strip_ansi(s: str) -> str:
 
 FORMAT_STRINGS = {
     "mp4": {
-        # Progressivos: video+audio pre-merged, nao precisa de ffmpeg.
-        # Cascata: mp4 progressivo na resolucao -> qualquer mp4 -> qualquer formato.
-        "360p":  "best[height<=360][ext=mp4]/best[height<=360]/best[ext=mp4]/best",
-        "720p":  "best[height<=720][ext=mp4]/best[height<=720]/best[ext=mp4]/best",
-        "1080p": "best[height<=1080][ext=mp4]/best[height<=1080]/best[ext=mp4]/best",
-        "best":  "best[ext=mp4]/best",
+        # Merge de video+audio (bestvideo+bestaudio) via ffmpeg. O YouTube vem
+        # eliminando os formatos progressivos (um arquivo so) e retorna 403 neles;
+        # entao forcar merge e o caminho que funciona. Fallback p/ progressivo se
+        # nao houver ffmpeg ou video separado.
+        "360p":  "bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]/best[height<=360]",
+        "720p":  "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best[height<=720]",
+        "1080p": "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best[height<=1080]",
+        "best":  "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
     },
     "mp3": "bestaudio/best",
 }
@@ -178,6 +180,10 @@ def run_download(task_id: str, url: str, dtype: str, quality: str, playlist: boo
         "quiet": True,
         "no_warnings": True,
         "windowsfilenames": True,
+        # O cliente web do yt-dlp vem sendo bloqueado pelo YouTube com 403 no
+        # meio do download; o cliente "android" passa. Nao listamos o web junto,
+        # pois o yt-dlp escolheria formatos dele e voltaria a dar 403.
+        "extractor_args": {"youtube": {"player_client": ["android"]}},
     }
 
     if dtype == "mp3":

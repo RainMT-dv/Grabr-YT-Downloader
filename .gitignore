@@ -1,0 +1,8 @@
+# Ignorar tudo por padrão
+/*
+
+# Exceto os arquivos que fazem parte do projeto
+!grabr.py
+!README.md
+!LICENSE
+!.gitignore
